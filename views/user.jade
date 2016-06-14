@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    form(method="post" action="/post" class="well form-inline center" style="text-align: center;")
+        input(type="text" class="span8" name="post")
+        button(type="submit" class="btn btn-success")
+            i submit
+
+    - for(var i = 0; i < posts.length; i+=3)
+            div(class="row")
+                - for(var j = 0; j < 3 && i+j < posts.length; j++)
+                    div(class="span4")
+                        h2
+                            a(href="/u/" + posts[i+j].user).description= posts[i+j].user
+                        p
+                            small= posts[i+j].time
+                        p= posts[i+j].post
+d
